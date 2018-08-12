@@ -1,0 +1,18 @@
+<mod>
+	<info>
+		<!-- Information about the Mod, the author and version information -->
+		<!-- These are displayed in the SDX Launcher -->
+		<author>thirlan</author>
+		<name>attackbelow</name>
+		<description>Allows zombies to attack players below ground by puking highly corrosive bile on targets below them</description>
+		<mod_version>0.1</mod_version>
+		<game_version>16.4</game_version>
+		<launcher_version>0.0.0</launcher_version>
+	</info>
+	
+	<!-- This references any config files that SDX needs to merge into your files -->
+	<config_mods>
+		<import file="Config\puke_zombies.xml" />
+    </config_mods>
+	
+</mod>

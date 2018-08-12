@@ -1,0 +1,73 @@
+<configs>
+	<config name="items">
+		<append xpath="/items">
+			<item id="" name="normalZombieVomit">
+				<property name="Meshfile" value="Items/Weapons/Ranged/Vomit/vomitBulbPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="CreativeMode" value="None"/>
+				<property class="Action1">
+					<property name="Class" value="Projectile"/>
+					<property name="DamageEntity" value="1"/>
+					<property name="DamageBlock" value="100"/>
+					<property name="Explosion.ParticleIndex" value="7"/>
+					<property name="Velocity" value="2"/>
+					<property name="FlyTime" value="0.50"/>
+					<property name="LifeTime" value="4"/>
+					<property name="CollisionRadius" value="0.1"/>
+					<property name="DamageBonus.earth" value="100"/>
+				</property>
+			</item>
+		</append>
+	
+		<append xpath="/items">
+			<item id="" name="handPuke">
+				<property name="Extends" value="handMaster" />
+				<property name="CreativeMode" value="None" />
+				<property name="Degradation" value="99999" param1="true" />
+				<property class="Action0">
+					<property name="DamageEntity" value="10" />
+					<property name="DamageBlock" value="20" />
+					<property name="Buff" value="bleeding,infection,stunned" />
+					<property name="Buff_chance" value="0.04,0.04,0.5" />
+				</property>
+				<property class="Action1">
+					<property name="Class" value="Vomit" />
+					<property name="Delay" value="0.35" />
+					<property name="Range" value="200" />
+					<property name="Auto_fire" value="true" />
+					<property name="Infinite_ammo" value="true" />
+					<property name="Magazine_items" value="normalZombieVomit" />
+					<property name="Rays_spread" value="0.9" />
+					<property name="Reload_time" value="2" />
+					<property name="Bullet_icon" value="uzi" />
+					<property name="Sound_warning" value="hulkvomitwarning" />
+					<property name="Sound_start" value="hulkvomitattack" />
+					<property name="Sound_repeat" value="" />
+					<property name="Sound_end" value="" />
+					<property name="Sound_empty" value="" />
+					<property name="Sound_reload" value="" />
+					<property name="Buff" value="infection" />
+					<property name="Buff_chance" value="0.2" />
+				</property>
+			</item>
+		</append>
+	</config>
+	
+	<config name="entityclasses">
+		<append xpath="/entity_classes">
+			<entity_class name="zombieFemalePuker" extends="zombieFemaleFat">
+				<property name="RightHandJointName" value="Jaw" />
+				<property name="Class" value="EntityZombieCop" />
+				<property name="AITask-1" value="BreakDoor" />
+				<property name="AITask-4" value="TargetIsBelow, Mods" param1="1" param2="5" />
+				<property name="AITask-2" value="BreakBlock" param1="1" param2="5" />
+				<property name="AITask-3" value="Territorial" />
+				<property name="AITask-5" value="ApproachAndAttackTarget" param1="EntityPlayer" />
+				<property name="AITask-6" value="ApproachAndAttackTarget" param1="EntityNPC" />
+				<property name="AITask-7" value="ApproachSpot" />
+				<property name="AITask-8" value="Wander" />
+				<property name="HandItem" value="handPuke" />
+			</entity_class>
+		</append>
+	</config>
+</configs>
