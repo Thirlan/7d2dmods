@@ -70,4 +70,13 @@
 			</entity_class>
 		</append>
 	</config>
+	
+	<config name="entitygroups">
+		<append xpath="/entitygroups/entitygroup[@name='ZombiesAll']">
+			<entity name="zombieFemalePuker" prob="10.0" />
+		</append>
+		<append xpath="/entitygroups/entitygroup[@name='ZombiesNight']">
+			<entity name="zombieFemalePuker" prob="10.0" />
+		</append>
+	</config>
 </configs>
