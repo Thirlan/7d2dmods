@@ -17,6 +17,21 @@
 					<property name="DamageBonus.earth" value="100"/>
 				</property>
 			</item>
+			<item id="" name="greaterZombieVomit">
+				<property name="Meshfile" value="Items/Weapons/Ranged/Vomit/vomitBulbPrefab"/>
+				<property name="Material" value="organic"/>
+				<property name="CreativeMode" value="None"/>
+				<property class="Action1">
+					<property name="Class" value="Projectile"/>
+					<property name="DamageEntity" value="1"/>
+					<property name="DamageBlock" value="200"/>
+					<property name="Explosion.ParticleIndex" value="7"/>
+					<property name="Velocity" value="2"/>
+					<property name="FlyTime" value="0.50"/>
+					<property name="LifeTime" value="4"/>
+					<property name="CollisionRadius" value="0.1"/>
+				</property>
+			</item>
 		</append>
 	
 		<append xpath="/items">
@@ -49,13 +64,46 @@
 					<property name="Buff" value="infection" />
 					<property name="Buff_chance" value="0.2" />
 				</property>
+			<item id="" name="greaterHandPuke">
+				<property name="Extends" value="handMaster" />
+				<property name="CreativeMode" value="None" />
+				<property name="Degradation" value="99999" param1="true" />
+				<property class="Action0">
+					<property name="DamageEntity" value="10" />
+					<property name="DamageBlock" value="20" />
+					<property name="Buff" value="bleeding,infection,stunned" />
+					<property name="Buff_chance" value="0.04,0.04,0.5" />					
+					<property name="DamageBonus.wood" value="50"/>
+					<property name="DamageBonus.earth" value="100"/>
+					<property name="DamageBonus.stone" value="25"/>
+				</property>
+				<property class="Action1">
+					<property name="Class" value="Vomit" />
+					<property name="Delay" value="0.35" />
+					<property name="Range" value="200" />
+					<property name="Auto_fire" value="true" />
+					<property name="Infinite_ammo" value="true" />
+					<property name="Magazine_items" value="greaterZombieVomit" />
+					<property name="Rays_spread" value="0.9" />
+					<property name="Reload_time" value="2" />
+					<property name="Bullet_icon" value="uzi" />
+					<property name="Sound_warning" value="hulkvomitwarning" />
+					<property name="Sound_start" value="hulkvomitattack" />
+					<property name="Sound_repeat" value="" />
+					<property name="Sound_end" value="" />
+					<property name="Sound_empty" value="" />
+					<property name="Sound_reload" value="" />
+					<property name="Buff" value="infection" />
+					<property name="Buff_chance" value="0.2" />
+				</property>
+			</item>
 			</item>
 		</append>
 	</config>
 	
 	<config name="entityclasses">
 		<append xpath="/entity_classes">
-			<entity_class name="zombieFemalePuker" extends="zombieFemaleFat">
+			<entity_class name="zombieMoePuker" extends="zombieMoe">
 				<property name="RightHandJointName" value="Jaw" />
 				<property name="Class" value="EntityZombieCop" />
 				<property name="AITask-1" value="BreakDoor" />
@@ -67,16 +115,102 @@
 				<property name="AITask-7" value="ApproachSpot" />
 				<property name="AITask-8" value="Wander" />
 				<property name="HandItem" value="handPuke" />
+				<property name="Explosion.ParticleIndex" value="8" />
+				<property name="Explosion.RadiusBlocks" value="5" />
+				<property name="Explosion.RadiusEntities" value="6" />
+				<property name="Explosion.BlockDamage" value="50" />
+				<property name="Explosion.EntityDamage" value="50" />
+				<property name="Explosion.DamageBonus.earth" value="100" />
+			</entity_class>
+			<entity_class name="zombieFemaleFatPuker" extends="zombieFemaleFat">
+				<property name="RightHandJointName" value="Jaw" />
+				<property name="Class" value="EntityZombieCop" />
+				<property name="AITask-1" value="BreakDoor" />
+				<property name="AITask-4" value="TargetIsBelow, Mods" param1="1" param2="5" />
+				<property name="AITask-2" value="BreakBlock" param1="1" param2="5" />
+				<property name="AITask-3" value="Territorial" />
+				<property name="AITask-5" value="ApproachAndAttackTarget" param1="EntityPlayer" />
+				<property name="AITask-6" value="ApproachAndAttackTarget" param1="EntityNPC" />
+				<property name="AITask-7" value="ApproachSpot" />
+				<property name="AITask-8" value="Wander" />
+				<property name="HandItem" value="handPuke" />
+				<property name="Explosion.ParticleIndex" value="8" />
+				<property name="Explosion.RadiusBlocks" value="5" />
+				<property name="Explosion.RadiusEntities" value="6" />
+				<property name="Explosion.BlockDamage" value="50" />
+				<property name="Explosion.EntityDamage" value="50" />
+				<property name="Explosion.DamageBonus.earth" value="100" />
+			</entity_class>
+			<entity_class name="zombieFatHawaiianPuker" extends="zombieFatHawaiian">
+				<property name="RightHandJointName" value="Jaw" />
+				<property name="Class" value="EntityZombieCop" />
+				<property name="AITask-1" value="BreakDoor" />
+				<property name="AITask-4" value="TargetIsBelow, Mods" param1="1" param2="5" />
+				<property name="AITask-2" value="BreakBlock" param1="1" param2="5" />
+				<property name="AITask-3" value="Territorial" />
+				<property name="AITask-5" value="ApproachAndAttackTarget" param1="EntityPlayer" />
+				<property name="AITask-6" value="ApproachAndAttackTarget" param1="EntityNPC" />
+				<property name="AITask-7" value="ApproachSpot" />
+				<property name="AITask-8" value="Wander" />
+				<property name="HandItem" value="handPuke" />
+				<property name="Explosion.ParticleIndex" value="8" />
+				<property name="Explosion.RadiusBlocks" value="5" />
+				<property name="Explosion.RadiusEntities" value="6" />
+				<property name="Explosion.BlockDamage" value="50" />
+				<property name="Explosion.EntityDamage" value="50" />
+				<property name="Explosion.DamageBonus.earth" value="100" />
+			</entity_class>
+			<entity_class name="zombieUtilityWorkerPuker" extends="zombieUtilityWorker">
+				<property name="RightHandJointName" value="Jaw" />
+				<property name="Class" value="EntityZombieCop" />
+				<property name="AITask-1" value="BreakDoor" />
+				<property name="AITask-4" value="TargetIsBelow, Mods" param1="1" param2="5" />
+				<property name="AITask-2" value="BreakBlock" param1="1" param2="5" />
+				<property name="AITask-3" value="Territorial" />
+				<property name="AITask-5" value="ApproachAndAttackTarget" param1="EntityPlayer" />
+				<property name="AITask-6" value="ApproachAndAttackTarget" param1="EntityNPC" />
+				<property name="AITask-7" value="ApproachSpot" />
+				<property name="AITask-8" value="Wander" />
+				<property name="HandItem" value="greaterHandPuke" />
+				<property name="Explosion.ParticleIndex" value="8" />
+				<property name="Explosion.RadiusBlocks" value="5" />
+				<property name="Explosion.RadiusEntities" value="6" />
+				<property name="Explosion.BlockDamage" value="100" />
+				<property name="Explosion.EntityDamage" value="50" />
 			</entity_class>
 		</append>
 	</config>
 	
 	<config name="entitygroups">
-		<append xpath="/entitygroups/entitygroup[@name='ZombiesAll']">
-			<entity name="zombieFemalePuker" prob="10.0" />
-		</append>
-		<append xpath="/entitygroups/entitygroup[@name='ZombiesNight']">
-			<entity name="zombieFemalePuker" prob="10.0" />
-		</append>
+		<set xpath="/entitygroups/entitygroup/entity[@name='zombieMoe']/@prob">2</set>
+		<set xpath="/entitygroups/entitygroup/entity[@name='zombieFemaleFat']/@prob">2</set>
+		<set xpath="/entitygroups/entitygroup/entity[@name='zombieFatHawaiian']/@prob">2</set>
+		<set xpath="/entitygroups/entitygroup/entity[@name='zombieUtilityWorker']/@prob">1</set>
+		<set xpath="/entitygroups/entitygroup/entity[@name='zombieMoe']/@name">zombieMoePuker</set>
+		<set xpath="/entitygroups/entitygroup/entity[@name='zombieFemaleFat']/@name">zombieFemaleFatPuker</set>
+		<set xpath="/entitygroups/entitygroup/entity[@name='zombieFatHawaiian']/@name">zombieFatHawaiianPuker</set>
+		<set xpath="/entitygroups/entitygroup/entity[@name='zombieUtilityWorker']/@name">zombieUtilityWorkerPuker</set>
+	</config>
+	
+	<config name="gamestages">
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@maxAlive='9']/@maxAlive">11</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@maxAlive='8']/@maxAlive">10</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@maxAlive='7']/@maxAlive">9</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@maxAlive='6']/@maxAlive">8</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@maxAlive='5']/@maxAlive">7</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@maxAlive='4']/@maxAlive">6</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@maxAlive='3']/@maxAlive">5</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@maxAlive='2']/@maxAlive">4</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@maxAlive='1']/@maxAlive">3</set>
+		
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@num='9']/@num">11</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@num='8']/@num">10</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@num='7']/@num">9</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@num='6']/@num">8</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@num='5']/@num">7</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@num='4']/@num">6</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@num='3']/@num">5</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@num='2']/@num">4</set>
+		<set xpath="/gamestages/spawner[@name='BloodMoonHorde']/gamestage/spawn[@num='1']/@num">3</set>
 	</config>
 </configs>
